@@ -5,5 +5,5 @@
 
 I'm interested in all things about website and science stuff. Let's do something awesome!🚀
 
-My DMs are open: [Twitter](https://twitter.com/erhilds)
+My DMs are open: [Twitter](https://twitter.com/hiii_erick)
 You can also visit my personal blog here [erickhilda.com](https://erickhilda.com)
