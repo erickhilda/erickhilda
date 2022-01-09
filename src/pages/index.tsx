@@ -51,11 +51,11 @@ const Home: NextPage = () => {
             <p className='lg:text-lg font-semibold max-w-[20em] mt-4'>
               You can find me on{' '}
               <Link href='https://github.com/erickhilda'>
-                <a>Github</a>{' '}
+                <a className='underline hover:text-blue-500'>Github</a>
               </Link>
-              or{' '}
+              {' '}or{' '}
               <Link href='https://twitter.com/hiii_erick'>
-                <a>Twitter</a>
+                <a className='underline hover:text-blue-500'>Twitter</a>
               </Link>
               .
             </p>
