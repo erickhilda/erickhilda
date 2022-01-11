@@ -58,6 +58,7 @@ const Home: NextPage = () => {
               </Link>
               .
             </p>
+            some changes
           </div>
         </div>
       </main>
