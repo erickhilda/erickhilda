@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useTheme } from 'next-themes'
 
 const Home: NextPage = () => {
-  const { theme, setTheme } = useTheme()
+  const { setTheme, resolvedTheme } = useTheme()
 
   return (
     <>
@@ -22,9 +22,9 @@ const Home: NextPage = () => {
               <button
                 className='p-2 focus:outline-none'
                 title='Toggles light & dark'
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
               >
-                {theme === 'dark' ? (
+                {resolvedTheme === 'dark' ? (
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     className='h-6 w-6'
