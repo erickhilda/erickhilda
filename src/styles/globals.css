@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+}
+
 body {
-  @apply min-h-screen m-0 p-0 box-border dark:bg-slate-900;
+  @apply min-h-screen m-0 p-0 box-border dark:bg-outer-space bg-[url(../../public/grid.svg)];
+}
+
+a::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+a:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+a::before {
+  @apply bg-outer-space dark:bg-gold;
+
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+
+a {
+  @apply dark:hover:text-outer-space hover:text-gold relative;
 }
