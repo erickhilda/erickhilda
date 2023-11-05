@@ -23,15 +23,15 @@ const Home: NextPage = () => {
               <h3 className='leading-none mt-4 font-semibold'>
                 Erick Hilda Andreas
               </h3>
-              <div className='my-3 flex lg:flex-row flex-col'>
+              <div className='my-3 flex md:flex-row flex-col'>
                 <Link href='https://www.linkedin.com/in/erickhilda/'>
                   <a>Linkedin</a>
                 </Link>
-                <span className='mx-2 hidden lg:block'>•</span>
+                <span className='mx-2 hidden md:block'>•</span>
                 <Link href='https://github.com/erickhilda'>
                   <a>Github</a>
                 </Link>
-                <span className='mx-2 hidden lg:block'>•</span>
+                <span className='mx-2 hidden md:block'>•</span>
                 <Link href='https://twitter.com/hiii_erick'>
                   <a>Twitter</a>
                 </Link>
