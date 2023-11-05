@@ -13,10 +13,10 @@ const Home: NextPage = () => {
 
       <main className='h-full'>
         <div className='flex justify-center'>
-          <div className='dark:text-gold text-outer-space mt-15 px-6 lg:grid lg:grid-cols-3 lg:max-w-[930px]'>
+          <div className='dark:text-gold text-outer-space px-6 lg:grid lg:grid-cols-3 lg:max-w-[930px]'>
             <div className='lg:col-span-2'>
-              <h2 className='lg:text-[122px] leading-none text-[56px] mt-[8vw] font-semibold'>
-                Software Engineer based in Indonesia
+              <h2 className='md:text-[112px] leading-none text-[56px] mt-4 font-semibold'>
+                Software Engineer based in East Java, Indonesia.
               </h2>
             </div>
             <div className='flex flex-col lg:justify-end lg:items-end'>
