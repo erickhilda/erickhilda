@@ -5,9 +5,11 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
-    colors: {
-      'outer-space': '#39423d',
-      gold: '#c4b796',
+    extend: {
+      colors: {
+        'outer-space': '#39423d',
+        gold: '#c4b796',
+      },
     },
   },
   variants: {
