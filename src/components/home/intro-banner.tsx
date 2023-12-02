@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import Link from "next/link"
 
 function IntorBanner() {
@@ -5,7 +6,10 @@ function IntorBanner() {
     <div className='flex justify-center'>
       <div className='dark:text-gold text-outer-space px-6 lg:grid lg:grid-cols-3 lg:max-w-[930px]'>
         <div className='lg:col-span-2'>
-          <h2 className='md:text-[112px] leading-none text-[56px] mt-4 font-semibold'>
+          <h2 className={clsx(
+            'md:text-[112px] leading-none text-[56px] mt-4 font-semibold',
+            'text-border-outer-space dark:text-border-gold text-shadow-gold'
+          )}>
             Software Engineer based in East Java, Indonesia.
           </h2>
         </div>

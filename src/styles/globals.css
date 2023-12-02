@@ -8,6 +8,30 @@
   }
 }
 
+@layer utilities {
+  .text-shadow-gold {
+    text-shadow: -4px 4px 0 #c4b796;
+  }
+
+  .text-shadow-outer-space {
+    text-shadow: -4px 4px 0 #39423d;
+  }
+
+  .text-border-outer-space {
+    --text-border-width: 2px;
+    -webkit-text-fill-color: #fff;
+    -webkit-text-stroke-width: var(--text-border-width);
+    -webkit-text-stroke-color: #39423d;
+  }
+
+  .text-border-gold {
+    --text-border-width: 2px;
+    -webkit-text-fill-color: #fff;
+    -webkit-text-stroke-width: var(--text-border-width);
+    -webkit-text-stroke-color: #39423d;
+  }
+}
+
 body {
   @apply min-h-screen m-0 p-0 box-border dark:bg-outer-space bg-[url(../../public/grid.svg)] text-base text-outer-space dark:text-gold;
 }
@@ -45,3 +69,4 @@ a {
 .debug {
   @apply border border-red-500;
 }
+
