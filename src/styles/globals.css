@@ -9,31 +9,26 @@
 }
 
 @layer utilities {
-  .text-shadow-gold {
+  .text-shadow {
     text-shadow: -4px 4px 0 #c4b796;
   }
 
-  .text-shadow-outer-space {
-    text-shadow: -4px 4px 0 #39423d;
-  }
-
-  .text-border-outer-space {
+  .text-border {
     --text-border-width: 2px;
     -webkit-text-fill-color: #fff;
     -webkit-text-stroke-width: var(--text-border-width);
     -webkit-text-stroke-color: #39423d;
   }
 
-  .text-border-gold {
-    --text-border-width: 2px;
-    -webkit-text-fill-color: #fff;
-    -webkit-text-stroke-width: var(--text-border-width);
-    -webkit-text-stroke-color: #39423d;
+  @media (max-width: 640px) {
+    .text-shadow {
+      text-shadow: -2px 2px 0 #c4b796;
+    }
   }
 }
 
 body {
-  @apply min-h-screen m-0 p-0 box-border dark:bg-outer-space bg-[url(../../public/grid.svg)] text-base text-outer-space dark:text-gold;
+  @apply min-h-screen m-0 p-0 box-border dark:bg-outer-space bg-[url(../../public/grid.svg)] text-base text-outer-space dark:text-white;
 }
 
 a::before {

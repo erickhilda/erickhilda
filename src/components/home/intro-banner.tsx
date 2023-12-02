@@ -4,11 +4,11 @@ import Link from "next/link"
 function IntorBanner() {
   return (
     <div className='flex justify-center'>
-      <div className='dark:text-gold text-outer-space px-6 lg:grid lg:grid-cols-3 lg:max-w-[930px]'>
+      <div className='dark:text-white text-outer-space px-6 lg:grid lg:grid-cols-3 lg:max-w-[930px]'>
         <div className='lg:col-span-2'>
           <h2 className={clsx(
             'md:text-[112px] leading-none text-[56px] mt-4 font-semibold',
-            'text-border-outer-space dark:text-border-gold text-shadow-gold'
+            'text-border text-shadow'
           )}>
             Software Engineer based in East Java, Indonesia.
           </h2>
