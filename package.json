@@ -10,6 +10,7 @@
     "pre-commit": "next lint"
   },
   "dependencies": {
+    "clsx": "^2.0.0",
     "next": "^12.1.5",
     "next-themes": "^0.0.15",
     "react": "^18.1.0",

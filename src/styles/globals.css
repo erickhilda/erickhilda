@@ -9,7 +9,7 @@
 }
 
 body {
-  @apply min-h-screen m-0 p-0 box-border dark:bg-outer-space bg-[url(../../public/grid.svg)];
+  @apply min-h-screen m-0 p-0 box-border dark:bg-outer-space bg-[url(../../public/grid.svg)] text-base text-outer-space dark:text-gold;
 }
 
 a::before {
@@ -40,4 +40,8 @@ a::before {
 
 a {
   @apply dark:hover:text-outer-space hover:text-gold relative transition-colors duration-300 ease-in-out delay-75;
+}
+
+.debug {
+  @apply border border-red-500;
 }
