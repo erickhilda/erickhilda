@@ -10,7 +10,7 @@ function IntorBanner() {
             'md:text-[112px] leading-none text-[56px] mt-4 font-semibold',
             'text-border text-shadow'
           )}>
-            Software Engineer based in East Java, Indonesia.
+            Software Engineer based in Central Java, Indonesia.
           </h2>
         </div>
         <div className='flex flex-col lg:justify-end lg:items-end'>
