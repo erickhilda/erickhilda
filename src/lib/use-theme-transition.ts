@@ -9,15 +9,14 @@ export function useThemeTransition() {
   const toggleTheme = useCallback(() => {
     const md = window.matchMedia('(max-width: 768px)').matches
 
-    // @ts-ignore
-    if (!document.startViewTransition ||
+    if (
+      !document.startViewTransition ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
     ) {
       setTheme(isDark ? 'light' : 'dark')
       return
     }
 
-    //@ts-ignore
     const transition = document.startViewTransition(() => {
       flushSync(() => {
         setTheme(isDark ? 'light' : 'dark')
