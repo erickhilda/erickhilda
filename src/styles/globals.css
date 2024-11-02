@@ -27,6 +27,18 @@
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  /* * {
+    transition-property: background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  } */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
 body {
   @apply min-h-screen m-0 p-0 box-border dark:bg-outer-space bg-[url(../../public/grid.svg)] text-base text-outer-space dark:text-white;
 }
