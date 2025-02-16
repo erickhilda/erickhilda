@@ -1,10 +1,45 @@
-<h3 align="center">👋 Hello there! I'm Erick.</h3>
-<h3 align="center">I love to learn and build stuff. 🌌</h3>
+# vue-project
 
-### Want to talk more!
+This template should help get you started developing with Vue 3 in Vite.
 
-I'm interested in all things about web and science stuff. Let's do something awesome!🚀
+## Recommended IDE Setup
 
-You can reach me by [email](mailto:erickh.andreas@gmail.com), [linkedin](https://linkedin.com/in/erickhilda), or [twitter](https://twitter.com/hiii_erick)
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-or if you want to see some of my work you can visit my personal website here [erickhilda.com](https://erickhilda.com)
+## Type Support for `.vue` Imports in TS
+
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vite.dev/config/).
+
+## Project Setup
+
+```sh
+bun install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+bun dev
+```
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+bun run build
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+bun test:unit
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+bun lint
+```
