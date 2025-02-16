@@ -1,27 +1,25 @@
-import { useTheme } from "next-themes"
-import { useCallback } from "react"
-import { flushSync } from "react-dom"
+import { computed } from 'vue'
+import { useColorMode } from '@vueuse/core'
 
 export function useThemeTransition() {
-  const { setTheme, theme } = useTheme()
-  const isDark = theme === 'dark'
+  const theme = useColorMode()
+  const isDark = computed(() => theme.value === 'dark')
 
-  const toggleTheme = useCallback(() => {
+  const setTheme = (mode: 'light' | 'dark') => (theme.value = mode)
+
+  const toggleTheme = () => {
     const md = window.matchMedia('(max-width: 768px)').matches
 
     if (
-      // @ts-ignore
       !document.startViewTransition ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
     ) {
-      setTheme(isDark ? 'light' : 'dark')
+      setTheme(isDark.value ? 'light' : 'dark')
       return
     }
-    // @ts-ignore
+
     const transition = document.startViewTransition(() => {
-      flushSync(() => {
-        setTheme(isDark ? 'light' : 'dark')
-      })
+      setTheme(isDark.value ? 'light' : 'dark')
     })
 
     transition.ready.then(() => {
@@ -30,17 +28,17 @@ export function useThemeTransition() {
 
       document.documentElement.animate(
         {
-          clipPath: [`circle(50% at -100% 50%)`, `circle(100% at 50% 50%)`],
-          filter: [`blur(${blur}px)`, `blur(0)`],
+          clipPath: ['circle(50% at -100% 50%)', 'circle(100% at 50% 50%)'],
+          filter: [`blur(${blur}px)`, 'blur(0)'],
         },
         {
           duration,
           easing: 'ease-out',
           pseudoElement: '::view-transition-new(root)',
-        }
+        },
       )
     })
-  }, [setTheme, isDark])
+  }
 
   return {
     theme,

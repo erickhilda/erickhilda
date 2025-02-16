@@ -1,0 +1,98 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --outer-space: #39423d;
+  --gold: #c4b796;
+}
+
+@layer base {
+  html {
+    font-family: 'Poppins', system-ui, sans-serif;
+    background: #fff;
+    color: var(--outer-space);
+  }
+
+  .dark {
+    color: #fff;
+    background: var(--outer-space);
+  }
+}
+
+#app {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url('./grid.svg');
+}
+
+.text-shadow {
+  text-shadow: -4px 4px 0 var(--gold);
+}
+
+.text-border {
+  --text-border-width: 2px;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke-width: var(--text-border-width);
+  -webkit-text-stroke-color: var(--outer-space);
+}
+
+a::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+a:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+a::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  z-index: -1;
+  transition: transform 0.3s ease-in-out;
+  transition-delay: 0.1s;
+  background: var(--outer-space);
+}
+
+.dark a::before {
+  background: var(--gold);
+}
+
+a {
+  position: relative;
+  
+  @apply transition-colors duration-300 ease-in-out delay-75;
+}
+
+a:hover {
+  color: var(--gold);
+}
+
+.dark a:hover {
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  {
+    transition-property: background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+.debug {
+  @apply border border-red-500;
+}
