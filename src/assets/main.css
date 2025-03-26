@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -29,7 +30,7 @@
 }
 
 .text-shadow {
-  text-shadow: -4px 4px 0 var(--gold);
+  text-shadow: -3px 3px 0 var(--gold);
 }
 
 .text-border {
@@ -37,6 +38,16 @@
   -webkit-text-fill-color: #fff;
   -webkit-text-stroke-width: var(--text-border-width);
   -webkit-text-stroke-color: var(--outer-space);
+}
+
+@media (max-width: 768px) {
+  .text-shadow {
+    text-shadow: -2px 2px 0 var(--gold);
+  }
+
+  .text-border {
+    --text-border-width: 1px;
+  }
 }
 
 a::before {
@@ -71,7 +82,7 @@ a::before {
 a {
   position: relative;
   
-  @apply transition-colors duration-300 ease-in-out delay-75;
+  @apply transition-colors duration-300 ease-in-out delay-75 !font-medium;
 }
 
 a:hover {

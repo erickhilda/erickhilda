@@ -7,7 +7,7 @@ const { theme, toggleTheme } = useThemeTransition()
 </script>
 
 <template>
-  <nav class="p-6 flex flex-none h-full max-w-[930px] mx-auto">
+  <nav class="p-6 flex flex-none h-full w-full">
     <div class="flex-1" />
     <div class="flex items-center">
       <nav class="inline-flex gap-4 dark:text-white items-center capitalize font-semibold">
