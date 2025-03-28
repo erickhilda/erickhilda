@@ -82,7 +82,7 @@ a::before {
 a {
   position: relative;
   
-  @apply transition-colors duration-300 ease-in-out delay-75 !font-medium;
+  @apply transition-colors duration-300 ease-in-out delay-75 font-normal;
 }
 
 a:hover {
@@ -90,7 +90,7 @@ a:hover {
 }
 
 .dark a:hover {
-  color: #fff;
+  color: var(--outer-space);
 }
 
 @media (prefers-reduced-motion: no-preference) {

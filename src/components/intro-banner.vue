@@ -4,13 +4,13 @@
       <h2 class="md:text-7xl leading-none text-4xl mt-4 font-semibold text-border text-shadow">
         Hello I'm Erick, Software Engineer based in Central Java, Indonesia.
       </h2>
-      <p class="mt-4 prose-sm lg:prose-base prose-stone prose-invert">
+      <p class="mt-4 prose-sm lg:prose-base">
         I am interested in software engineering and everything in its orbit. While most of my work
         was revolve around building web applications, I also enjoy exploring other areas of software
         engineering and specializations like data engineering, data visualization, and game
         development.
       </p>
-      <p class="mt-4 prose-sm lg:prose-base prose-stone prose-invert">
+      <p class="mt-4 prose-sm lg:prose-base">
         Outside of programming, I enjoy watching anime and occasionally cycling and martial art.
       </p>
     </div>
