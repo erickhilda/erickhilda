@@ -15,9 +15,9 @@ const { theme, toggleTheme } = useThemeTransition()
     </div>
     <div class="flex items-center">
       <nav class="inline-flex gap-4 dark:text-white items-center capitalize font-semibold">
-        <RouterLink to="/posts" title="Blog" class="link">
-          <span>Blog</span>
-        </RouterLink>
+        <!-- <RouterLink to="/posts" title="Blog" class="link"> -->
+        <!--   <span>Blog</span> -->
+        <!-- </RouterLink> -->
         <RouterLink to="/projects" title="Projects">
           <span>Projects</span>
         </RouterLink>
