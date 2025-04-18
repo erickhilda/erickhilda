@@ -12,6 +12,9 @@ import Shiki from '@shikijs/markdown-it'
 
 // https://vite.dev/config/
 export default defineConfig({
+  optimizeDeps: {
+    include: ['vue', 'vue-router', '@vueuse/core'],
+  },
   plugins: [
     // https://github.com/posva/unplugin-vue-router
     VueRouter({
@@ -21,7 +24,7 @@ export default defineConfig({
         const path = route.components.get('default')
         if (!path) return
 
-        if (!path.includes('projects.md') && path.endsWith('.md')) {
+        if (path.endsWith('.md')) {
           const { data } = matter(fs.readFileSync(path, 'utf-8'))
           route.addToMeta({
             frontmatter: data,

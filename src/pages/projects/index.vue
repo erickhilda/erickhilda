@@ -20,7 +20,7 @@ useHead({
 
 const params = useUrlSearchParams()
 const activeTab = computed({
-  get: () => params.tab || 'project',
+  get: () => (params.tab || 'project') as string,
   set: (v) => (params.tab = v as string),
 })
 </script>

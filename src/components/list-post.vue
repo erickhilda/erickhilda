@@ -1,31 +1,24 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-// import { englishOnly, formatDate } from '~/logics'
 
 export interface Post {
   path: string
   title: string
-  place?: string
   date: string
   lang?: string
   desc?: string
-  platform?: string
   duration?: string
-  recording?: string
-  radio?: boolean
-  video?: boolean
-  inperson?: boolean
-  redirect?: string
 }
 
 const props = defineProps<{
-  type?: string
+  type: string
   posts?: Post[]
   extra?: Post[]
 }>()
 
 const router = useRouter()
+console.log(router.getRoutes().filter((i) => i.path.startsWith('/posts')))
 const routes: Post[] = router
   .getRoutes()
   .filter(
@@ -34,19 +27,18 @@ const routes: Post[] = router
   .filter(
     (i) =>
       !i.path.endsWith('.html') &&
-      (i.meta.frontmatter.type || 'blog').split('+').includes(props.type),
+      ((i.meta.frontmatter.type as string) || 'blog').split('+').includes(props.type),
   )
-  .map((i) => ({
-    path: i.meta.frontmatter.redirect || i.path,
-    title: i.meta.frontmatter.title,
-    date: i.meta.frontmatter.date,
-    lang: i.meta.frontmatter.lang,
-    duration: i.meta.frontmatter.duration,
-    recording: i.meta.frontmatter.recording,
-    upcoming: i.meta.frontmatter.upcoming,
-    redirect: i.meta.frontmatter.redirect,
-    place: i.meta.frontmatter.place,
-  }))
+  .map(
+    (i) =>
+      ({
+        path: i.meta.frontmatter.redirect || i.path,
+        title: i.meta.frontmatter.title,
+        date: i.meta.frontmatter.date,
+        lang: i.meta.frontmatter.lang,
+        duration: i.meta.frontmatter.duration,
+      }) as Post,
+  )
 
 const posts = computed(() =>
   [...(props.posts || routes), ...(props.extra || [])].sort(
@@ -73,7 +65,7 @@ function getGroupName(p: Post) {
     List of post
     <ul>
       <template v-if="!posts.length">
-        <div py2 op50>{ nothing here yet }</div>
+        <div py2 op50>nothing here yet</div>
       </template>
 
       <template v-for="(route, idx) in posts" :key="route.path">
@@ -133,8 +125,6 @@ function getGroupName(p: Post) {
                   {{ route.date }}
                 </span>
                 <span v-if="route.duration" text-sm op40 ws-nowrap>· {{ route.duration }}</span>
-                <span v-if="route.platform" text-sm op40 ws-nowrap>· {{ route.platform }}</span>
-                <span v-if="route.place" text-sm op40 ws-nowrap md:hidden>· {{ route.place }}</span>
                 <span
                   v-if="route.lang === 'zh'"
                   align-middle
@@ -144,9 +134,6 @@ function getGroupName(p: Post) {
                 >
               </div>
             </li>
-            <div v-if="route.place" op50 text-sm hidden mt--2 md:block>
-              {{ route.place }}
-            </div>
           </component>
         </div>
       </template>
