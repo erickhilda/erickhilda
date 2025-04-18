@@ -16,5 +16,5 @@ export type WorkingExperience = {
 
 export type Portfolio = {
   project: Array<Project>
-  'working-experience': Array<WorkingExperience>
+  'work-experience': Array<WorkingExperience>
 }

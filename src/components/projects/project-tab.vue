@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Portfolio } from '@/types'
-import { RouterLink } from 'vue-router'
 
 const props = defineProps<{ projects: Portfolio['project'] }>()
 </script>
@@ -15,10 +14,11 @@ const props = defineProps<{ projects: Portfolio['project'] }>()
       <img v-if="p.image" :src="p.image" class="aspect-video rounded-t-lg" />
       <div class="flex justify-between p-3">
         <div>
-          <RouterLink :href="p.link" class="font-semibold">{{ p.name }}</RouterLink>
+          <a v-if="p.link" :href="p.link" class="font-semibold">{{ p.name }}</a>
+          <span v-else class="font-semibold">{{ p.name }}</span>
           <p class="font-light prose-sm line-clamp-2">{{ p.desc }}</p>
         </div>
-        <RouterLink v-if="p.repo" :href="p.repo" class="aspect-square w-5 h-5 shrink-0">
+        <a v-if="p.repo" :href="p.repo" class="aspect-square w-5 h-5 shrink-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -36,7 +36,7 @@ const props = defineProps<{ projects: Portfolio['project'] }>()
             />
             <path d="M9 18c-4.51 2-5-2-7-2" />
           </svg>
-        </RouterLink>
+        </a>
       </div>
     </div>
   </div>

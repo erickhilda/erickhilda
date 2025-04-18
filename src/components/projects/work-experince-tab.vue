@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import type { Portfolio } from '@/types'
 
-const props = defineProps<{ experiences: Portfolio['working-experience'] }>()
+const props = defineProps<{ experiences: Portfolio['work-experience'] }>()
 </script>
 
 <template>
-  <div class="mx-auto max-w-3xl">
-    <div class="relative border-l border-muted pl-6 md:pl-8">
+  <div class="mx-auto max-w-3xl pl-2 lg:pl-0">
+    <div class="relative border-l border-muted border-dashed pl-6 lg:pl-8">
       <div
         v-for="(exp, idx) in props.experiences"
         :key="`work-exp-${idx}`"
-        :class="`mb-12 last:mb-0`"
+        :class="`mb-8 last:mb-0`"
       >
         <div
-          class="absolute -left-4 -translate-y-1.5 h-8 w-8 border-4 border-white dark:border-(--outer-space) rounded-full"
+          class="absolute -left-4 -translate-y-0.5 h-8 w-8 border-4 border-white dark:border-(--outer-space) rounded-full"
         >
           <span
             class="flex items-center justify-center rounded-full backdrop-blur-lg w-full h-full border"
@@ -34,10 +34,12 @@ const props = defineProps<{ experiences: Portfolio['working-experience'] }>()
             </svg>
           </span>
         </div>
-        <div class="mb-2 text-sm font-light text-muted-foreground">{{ exp.period }}</div>
-        <h3 class="text-xl font-semibold">{{ exp.position }}</h3>
-        <h4 class="mb-3 text-muted-foreground">{{ exp.company }}</h4>
-        <p class="text-muted-foreground">{{ exp.description }}</p>
+        <h4 class="text-xl text-muted-foreground font-bold">{{ exp.company }}</h4>
+        <div class="mb-3 text-sm font-light text-muted-foreground">
+          <span class="font-semibold">{{ exp.position }}</span
+          >, {{ exp.period }}
+        </div>
+        <p class="text-muted-foreground text-sm">{{ exp.description }}</p>
       </div>
     </div>
   </div>
