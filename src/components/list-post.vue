@@ -18,7 +18,6 @@ const props = defineProps<{
 }>()
 
 const router = useRouter()
-console.log(router.getRoutes().filter((i) => i.path.startsWith('/posts')))
 const routes: Post[] = router
   .getRoutes()
   .filter(
@@ -36,6 +35,9 @@ const routes: Post[] = router
         title: i.meta.frontmatter.title,
         date: i.meta.frontmatter.date,
         lang: i.meta.frontmatter.lang,
+        desc:
+          i.meta.frontmatter.desc ||
+          (i.meta.frontmatter.meta && i.meta.frontmatter.meta[0]?.content),
         duration: i.meta.frontmatter.duration,
       }) as Post,
   )
@@ -45,98 +47,41 @@ const posts = computed(() =>
     (a, b) => +new Date(b.date) - +new Date(a.date),
   ),
 )
-
-const getYear = (a: Date | string | number) => new Date(a).getFullYear()
-const isFuture = (a?: Date | string | number) => a && new Date(a) > new Date()
-const isSameYear = (a?: Date | string | number, b?: Date | string | number) =>
-  a && b && getYear(a) === getYear(b)
-function isSameGroup(a: Post, b?: Post) {
-  return isFuture(a.date) === isFuture(b?.date) && isSameYear(a.date, b?.date)
-}
-
-function getGroupName(p: Post) {
-  if (isFuture(p.date)) return 'Upcoming'
-  return getYear(p.date)
-}
 </script>
 
 <template>
-  <div class="debug !w-full lg:min-w-sm">
-    List of post
-    <ul>
-      <template v-if="!posts.length">
-        <div py2 op50>nothing here yet</div>
-      </template>
+  <div class="flex flex-col items-start w-full gap-4 py-6">
+    <span class="text-border text-shadow text-5xl font-semibold">Posts</span>
+    <div class="">
+      In the spirit of improving my ability in writing, story telling, and explaining things
+    </div>
 
-      <template v-for="(route, idx) in posts" :key="route.path">
+    <div class="relative border-l border-muted border-dashed pl-4 lg:pl-6">
+      <div v-for="post in posts" :key="post.path" :class="`mb-8 last:mb-0`">
         <div
-          v-if="!isSameGroup(route, posts[idx - 1])"
-          select-none
-          relative
-          h20
-          pointer-events-none
-          slide-enter
-          :style="{
-            '--enter-stage': idx - 2,
-            '--enter-step': '60ms',
-          }"
+          class="absolute -left-1.5 translate-y-2 h-3 w-3 border-1 border-white dark:border-(--outer-space) rounded-full"
         >
           <span
-            text-8em
-            color-transparent
-            absolute
-            left--3rem
-            top--2rem
-            font-bold
-            text-stroke-2
-            text-stroke-hex-aaa
-            op10
-            >{{ getGroupName(route) }}</span
+            class="flex items-center justify-center rounded-full backdrop-blur-lg w-full h-full border"
           >
+          </span>
         </div>
-        <div
-          class="slide-enter"
-          :style="{
-            '--enter-stage': idx,
-            '--enter-step': '60ms',
-          }"
-        >
-          <component
-            :is="route.path.includes('://') ? 'a' : 'RouterLink'"
-            v-bind="
-              route.path.includes('://')
-                ? {
-                    href: route.path,
-                    target: '_blank',
-                    rel: 'noopener noreferrer',
-                  }
-                : {
-                    to: route.path,
-                  }
-            "
-            class="item block font-normal mb-6 mt-2 no-underline"
-          >
-            <li class="no-underline" flex="~ col md:row gap-2 md:items-center">
-              <div class="title text-lg leading-1.2em" flex="~ gap-2 wrap">
-                <span align-middle>{{ route.title }}</span>
-
-                <span text-sm op50 ws-nowrap>
-                  <!-- {{ formatDate(route.date, true) }} -->
-                  {{ route.date }}
-                </span>
-                <span v-if="route.duration" text-sm op40 ws-nowrap>· {{ route.duration }}</span>
-                <span
-                  v-if="route.lang === 'zh'"
-                  align-middle
-                  flex-none
-                  class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden"
-                  >中文</span
-                >
-              </div>
-            </li>
-          </component>
+        <div class="flex flex-col items-start">
+          <RouterLink :to="post.path" class="text-xl text-muted-foreground font-bold">
+            {{ post.title }}
+          </RouterLink>
+          <span class="text-sm font-light text-muted-foreground mt-1">
+            {{
+              new Date(post.date).toLocaleDateString('en-GB', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric',
+              })
+            }}
+          </span>
         </div>
-      </template>
-    </ul>
+        <span class="text-foreground text-sm mt-2">{{ post.desc }}</span>
+      </div>
+    </div>
   </div>
 </template>

@@ -3,7 +3,7 @@ title: All you need is Google Spreadsheets
 meta:
   - name: description
     content: Utilize Google Spreadsheets as consumable database
-date:
+date: 2024-11-10
 ---
 
 <div class="text-center">

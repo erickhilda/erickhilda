@@ -3,7 +3,7 @@ title: Bring Your Fantasy Map to Live
 meta:
   - name: description
     content: Create a custom fantasy map tile to be use as map style
-date:
+date: 2025-3-12
 ---
 
 <div class="text-center">
