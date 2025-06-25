@@ -4,6 +4,11 @@ import IconSun from './icon-sun.vue'
 import { useThemeTransition } from '@/composable/use-theme-transition'
 
 const { theme, toggleTheme } = useThemeTransition()
+
+const handleThemeToggle = (event: Event) => {
+  const button = event.currentTarget as HTMLElement
+  toggleTheme(button)
+}
 </script>
 
 <template>
@@ -24,7 +29,7 @@ const { theme, toggleTheme } = useThemeTransition()
         <button
           class="p-2 focus:outline-none text-outer-space dark:text-white cursor-pointer"
           title="Toggles light & dark"
-          @click="toggleTheme"
+          @click="handleThemeToggle"
         >
           <IconMoon class="h-6 w-6" v-if="theme === 'light'" />
           <IconSun class="h-6 w-6" v-else />

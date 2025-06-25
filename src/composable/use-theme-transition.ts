@@ -7,7 +7,7 @@ export function useThemeTransition() {
 
   const setTheme = (mode: 'light' | 'dark') => (theme.value = mode)
 
-  const toggleTheme = () => {
+  const toggleTheme = (buttonElement?: HTMLElement) => {
     const md = window.matchMedia('(max-width: 768px)').matches
 
     if (
@@ -26,9 +26,22 @@ export function useThemeTransition() {
       const blur = md ? 2 : 10
       const duration = md ? 500 : 700
 
+      // Calculate button position for transition origin
+      let clipPathStart = 'circle(0% at 50% 50%)'
+      let clipPathEnd = 'circle(100% at 50% 50%)'
+
+      if (buttonElement) {
+        const rect = buttonElement.getBoundingClientRect()
+        const centerX = ((rect.left + rect.width / 2) / window.innerWidth) * 100
+        const centerY = ((rect.top + rect.height / 2) / window.innerHeight) * 100
+
+        clipPathStart = `circle(0% at ${centerX}% ${centerY}%)`
+        clipPathEnd = `circle(100% at ${centerX}% ${centerY}%)`
+      }
+
       document.documentElement.animate(
         {
-          clipPath: ['circle(50% at -100% 50%)', 'circle(100% at 50% 50%)'],
+          clipPath: [clipPathStart, clipPathEnd],
           filter: [`blur(${blur}px)`, 'blur(0)'],
         },
         {
