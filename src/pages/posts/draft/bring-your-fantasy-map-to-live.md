@@ -1,9 +1,9 @@
 ---
-title: All you need is Google Spreadsheets
+title: Bring Your Fantasy Map to Live
 meta:
   - name: description
-    content: Utilize Google Spreadsheets as consumable database
-date: 2024-11-10
+    content: Create a custom fantasy map tile to be use as map style
+date:
 ---
 
 <div class="text-center">

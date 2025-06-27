@@ -56,6 +56,11 @@ const posts = computed(() =>
       In the spirit of improving my ability in writing, story telling, and explaining things
     </div>
 
+    <!-- add nice display when there is no posts -->
+    <div v-if="posts.length === 0" class="text-muted-foreground text-sm">
+      No posts found.
+    </div>
+
     <div class="relative border-l border-muted border-dashed pl-4 lg:pl-6">
       <div v-for="post in posts" :key="post.path" :class="`mb-8 last:mb-0`">
         <div

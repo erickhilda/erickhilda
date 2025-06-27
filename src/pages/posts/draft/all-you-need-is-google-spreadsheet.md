@@ -1,8 +1,9 @@
 ---
-title: About
+title: All you need is Google Spreadsheets
 meta:
   - name: description
-    content: Hello World
+    content: Utilize Google Spreadsheets as consumable database
+date:
 ---
 
 <div class="text-center">
