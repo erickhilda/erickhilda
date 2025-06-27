@@ -1,8 +1,9 @@
 ---
-title: About
+title: Bring Your Fantasy Map to Live
 meta:
   - name: description
-    content: Hello World
+    content: Create a custom fantasy map tile to be use as map style
+date:
 ---
 
 <div class="text-center">
