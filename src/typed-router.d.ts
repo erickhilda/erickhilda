@@ -21,8 +21,6 @@ declare module 'vue-router/auto-routes' {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/[...404]': RouteRecordInfo<'/[...404]', '/:404(.*)', { 404: ParamValue<true> }, { 404: ParamValue<false> }>,
     '/posts/': RouteRecordInfo<'/posts/', '/posts', Record<never, never>, Record<never, never>>,
-    '/posts/all-you-need-is-google-spreadsheet': RouteRecordInfo<'/posts/all-you-need-is-google-spreadsheet', '/posts/all-you-need-is-google-spreadsheet', Record<never, never>, Record<never, never>>,
-    '/posts/bring-your-fantasy-map-to-live': RouteRecordInfo<'/posts/bring-your-fantasy-map-to-live', '/posts/bring-your-fantasy-map-to-live', Record<never, never>, Record<never, never>>,
     '/posts/draft/all-you-need-is-google-spreadsheet': RouteRecordInfo<'/posts/draft/all-you-need-is-google-spreadsheet', '/posts/draft/all-you-need-is-google-spreadsheet', Record<never, never>, Record<never, never>>,
     '/posts/draft/bring-your-fantasy-map-to-live': RouteRecordInfo<'/posts/draft/bring-your-fantasy-map-to-live', '/posts/draft/bring-your-fantasy-map-to-live', Record<never, never>, Record<never, never>>,
     '/projects/': RouteRecordInfo<'/projects/', '/projects', Record<never, never>, Record<never, never>>,

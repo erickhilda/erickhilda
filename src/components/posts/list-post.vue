@@ -37,7 +37,8 @@ const routes: Post[] = router
         lang: i.meta.frontmatter.lang,
         desc:
           i.meta.frontmatter.desc ||
-          (i.meta.frontmatter.meta && i.meta.frontmatter.meta[0]?.content),
+          (i.meta.frontmatter.meta && Array.isArray(i.meta.frontmatter.meta) && 
+           (i.meta.frontmatter.meta as Array<{ name: string; content: string }>)[0]?.content),
         duration: i.meta.frontmatter.duration,
       }) as Post,
   )
