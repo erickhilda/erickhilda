@@ -1,4 +1,4 @@
-import type { Portfolio } from '@/types'
+import type { Portfolio } from '@/types/project'
 
 export const portfolios: Portfolio = {
   project: [

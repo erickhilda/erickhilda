@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Portfolio } from '@/types'
+import type { Portfolio } from '@/types/project'
 
 const props = defineProps<{ experiences: Portfolio['work-experience'] }>()
 </script>

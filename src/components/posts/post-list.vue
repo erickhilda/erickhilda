@@ -1,24 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-
-export interface Post {
-  path: string
-  title: string
-  date: string
-  lang?: string
-  desc?: string
-  duration?: string
-}
+import { formatDate } from '@/lib/date'
+import type { PostMeta } from '@/types/post'
 
 const props = defineProps<{
   type: string
-  posts?: Post[]
-  extra?: Post[]
+  posts?: PostMeta[]
+  extra?: PostMeta[]
 }>()
 
 const router = useRouter()
-const routes: Post[] = router
+const routes: PostMeta[] = router
   .getRoutes()
   .filter(
     (i) => i.path.startsWith('/posts') && i.meta.frontmatter.date && !i.meta.frontmatter.draft,
@@ -37,9 +30,10 @@ const routes: Post[] = router
         lang: i.meta.frontmatter.lang,
         desc:
           i.meta.frontmatter.desc ||
-          (i.meta.frontmatter.meta && i.meta.frontmatter.meta[0]?.content),
+          (i.meta.frontmatter.meta && Array.isArray(i.meta.frontmatter.meta) && 
+           (i.meta.frontmatter.meta as Array<{ name: string; content: string }>)[0]?.content),
         duration: i.meta.frontmatter.duration,
-      }) as Post,
+      }) as PostMeta,
   )
 
 const posts = computed(() =>
@@ -76,13 +70,7 @@ const posts = computed(() =>
             {{ post.title }}
           </RouterLink>
           <span class="text-sm font-light text-muted-foreground mt-1">
-            {{
-              new Date(post.date).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric',
-              })
-            }}
+            {{ formatDate(post.date) }}
           </span>
         </div>
         <span class="text-foreground text-sm mt-2">{{ post.desc }}</span>

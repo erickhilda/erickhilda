@@ -4,7 +4,7 @@ display: ''
 ---
 
 <script setup>
-import ListPost from '@/components/posts/list-post.vue'
+import PostList from '@/components/posts/post-list.vue'
 </script>
 
-<ListPost only-date type="blog" />
+<PostList only-date type="blog" />
