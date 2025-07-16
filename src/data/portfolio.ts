@@ -26,6 +26,14 @@ export const portfolios: Portfolio = {
       repo: 'https://github.com/erickhilda/furniture-configurator',
       tools: ['NextJs', 'Typescript', 'Three.Js', 'Tailwindcss'],
     },
+    {
+      name: 'Octopath Traveler World Map',
+      desc: 'A tool for creating world map for Octopath Traveler 2, built to demonstrate my skills in creative programming and real-time visual interaction using Leaflet.js.',
+      link: 'https://octopath-world-map.vercel.app/',
+      image: '/images/posts/CotC_Orsterra_World_Map.webp',
+      repo: 'https://github.com/erickhilda/8path-map',
+      tools: ['ReactJs', 'Typescript', 'Tailwindcss', 'Leaflet.js'],
+    },
   ],
   'work-experience': [
     {
