@@ -46,9 +46,6 @@ const posts = computed(() =>
 <template>
   <div class="flex flex-col items-start w-full gap-4 py-6">
     <span class="text-border text-shadow text-5xl font-semibold">Posts</span>
-    <div class="">
-      In the spirit of improving my ability in writing, story telling, and explaining things
-    </div>
 
     <!-- add nice display when there is no posts -->
     <div v-if="posts.length === 0" class="text-muted-foreground text-sm">

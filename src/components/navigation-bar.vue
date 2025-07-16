@@ -21,10 +21,10 @@ const isActive = (path: string) => {
 }
 
 const links = [
-  // {
-  //   path: '/posts',
-  //   title: 'Posts',
-  // },
+  {
+    path: '/posts',
+    title: 'Posts',
+  },
   {
     path: '/projects',
     title: 'Projects',

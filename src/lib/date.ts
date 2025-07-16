@@ -7,3 +7,14 @@ export function formatDate(d: string | Date, onlyDate = true, format = 'YYYY MMM
     return date.format(format)
   return date.format(format)
 }
+
+export function formatDuration(d: number) {
+  const hours = Math.floor(d / 60)
+  const minutes = d % 60
+
+  if (hours > 0) {
+    return `${hours} hours ${minutes} minutes`
+  }
+
+  return `${minutes} minutes`
+}
