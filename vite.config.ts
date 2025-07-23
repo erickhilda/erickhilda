@@ -11,6 +11,7 @@ import LinkAttributes from 'markdown-it-link-attributes'
 import Shiki from '@shikijs/markdown-it'
 import anchor from 'markdown-it-anchor'
 import { slugify } from './scripts/slugify'
+// @ts-expect-error missing type definition
 import TOC from 'markdown-it-table-of-contents'
 
 // https://vite.dev/config/
@@ -77,7 +78,8 @@ export default defineConfig({
         md.use(TOC, {
           includeLevel: [1, 2, 3, 4],
           slugify,
-          containerHeaderHtml: '<div class="table-of-contents-anchor"><div class="i-ri-menu-2-fill" /></div>',
+          containerHeaderHtml:
+            '<div class="table-of-contents-anchor"><div class="i-ri-menu-2-fill" /></div>',
         })
       },
     }),
