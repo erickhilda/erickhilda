@@ -9,6 +9,10 @@ import VueRouter from 'unplugin-vue-router/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Shiki from '@shikijs/markdown-it'
+import anchor from 'markdown-it-anchor'
+import { slugify } from './scripts/slugify'
+// @ts-expect-error missing type definition
+import TOC from 'markdown-it-table-of-contents'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -38,6 +42,13 @@ export default defineConfig({
     // https://github.com/unplugin/unplugin-vue-markdown
     // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
     Markdown({
+      wrapperComponent: (id: string) => {
+        // Only apply PostWrapper to actual blog post files, not index pages
+        if (id.includes('/posts/') && !id.endsWith('/index.md')) {
+          return 'PostWrapper'
+        }
+        return undefined
+      },
       wrapperClasses: 'prose-outer-space prose-sm lg:prose-base prose-invert m-auto text-left',
       headEnabled: true,
       async markdownItSetup(md) {
@@ -57,6 +68,19 @@ export default defineConfig({
             },
           }),
         )
+        md.use(anchor, {
+          slugify,
+          permalink: anchor.permalink.linkInsideHeader({
+            symbol: '#',
+            renderAttrs: () => ({ 'aria-hidden': 'true' }),
+          }),
+        })
+        md.use(TOC, {
+          includeLevel: [1, 2, 3, 4],
+          slugify,
+          containerHeaderHtml:
+            '<div class="table-of-contents-anchor"><div class="i-ri-menu-2-fill" /></div>',
+        })
       },
     }),
     vueDevTools(),
