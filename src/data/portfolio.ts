@@ -37,25 +37,33 @@ export const portfolios: Portfolio = {
   ],
   'work-experience': [
     {
+      company: 'Wasimil - Azoo Inc.',
+      position: 'Software Engineer',
+      period: 'Mey 2025–Oct 2025',
+      description:
+        'Contributed to developing core hotel management features, improved the development workflow by migrating to Vite, and helped build an AI-powered chatbot for data analysis.',
+
+    },
+    {
       company: 'Trustmedis',
       position: 'Software Engineer',
       period: 'Dec 2023–Mar 2025',
       description:
-        'Managing the frontend team for an HR management system tailored for healthcare, contribute to modernizing legacy systems into modular solutions, and drive frontend strategy for scalable, user-friendly interfaces.',
+        'In-charge of the frontend team for an HR management system tailored for healthcare, contribute to modernizing legacy systems into modular solutions, and drive frontend strategy for scalable, user-friendly interfaces.',
     },
     {
       company: 'Agri Sparta',
       position: 'Fullstack Engineer',
       period: 'Aug 2023–Feb 2024',
       description:
-        'led the development of a web platform from the ground up, using Supabase for the backend and working closely with product and DevOps teams to ensure a smooth, scalable launch.',
+        'In-charge of the development of a web platform from the ground up, using Supabase for the backend and working closely with product and DevOps teams to ensure a smooth, scalable launch.',
     },
     {
       company: 'Alterra Academy x Kampus Merdeka',
       position: 'Mentor Frontend Engineer',
       period: 'Apr 2022–Jul 2022',
       description:
-        'I mentored students in frontend engineering with Vue.js, guiding them through a real-world project to build technical and teamwork skills—an experience that sharpened my own mentorship abilities and deepened my passion for growing new talent.',
+        'Mentored students in frontend engineering with Vue.js, guiding them through a real-world project to build technical and teamwork skills—an experience that sharpened my own mentorship abilities and deepened my passion for growing new talent.',
     },
     {
       company: 'Ajaib',
